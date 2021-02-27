@@ -30,18 +30,26 @@ var confirmspecialcase;
 function generatePassword() {
 
   // Creating initial prompt
-  var confirmLength = prompt("Please choose a password length between 8 and 128 characters?");
-  console.log(confirmLength);
+  var confirmLength = prompt("Hey! Let's make a password! Why don't you start by choosing a number between 8 and 128?");
 
+  
   while(confirmLength <= 7 || confirmLength >= 129) {
-    alert ("Password length must be between 8 and 128 character, please retry")
-    var confirmLength = prompt("Please choose a password length between 8 and 128 characters?");
-  }
+    alert ("Ack! I'm sorry, but I really need you to choose a number between 8 and 128")
+    var confirmLength = prompt("OK, let's try this again. Why don't you start by choosing a number between 8 and 128?");
+  } 
 
-  var confirmUpperCase = confirm("Should the password include uppercase letters?")
-  var confirmLowerCase = confirm("Should the password include lowercase letters?")
-  var confirmspecialcase = confirm("Should the password include special characters?");
-  var confirmNumbers = confirm ("Should this password include numbers?");
+  var confirmUpperCase = confirm("Do you want this password to have uppercase letters?")
+  var confirmLowerCase = confirm("Do you want this password to have lowercase letters?")
+  var confirmspecialcase = confirm("Do you want this password to have special characters?");
+  var confirmNumbers = confirm ("Do you want this password to have numbers?");
+
+  while(confirmUpperCase === false && confirmLowerCase === false && confirmspecialcase === false && confirmNumbers === false) {
+    alert("You need to choose SOMETHING! Let's try this again....");
+    var confirmUpperCase = confirm("Do you want this password to have uppercase letters?")
+    var confirmLowerCase = confirm("Do you want this password to have lowercase letters?")
+    var confirmspecialcase = confirm("Do you want this password to have special characters?");
+    var confirmNumbers = confirm ("Do you want this password to have numbers?");
+    } 
 
   if (confirmUpperCase) {
     passwordArray = passwordArray.concat(uppercase); 
